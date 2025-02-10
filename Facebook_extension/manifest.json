@@ -1,0 +1,13 @@
+{
+    "manifest_version": 3,
+    "name":"Mi extension de facebook",
+    "short_name":"Custom Ex.",
+    "description":"Mi primera extension para un navegador",
+    "version":"1.0",
+    "action":{
+        "default_popup":"index.html"
+    },
+    "permissions":[
+        "activeTab","scripting","tabs"
+    ]
+}

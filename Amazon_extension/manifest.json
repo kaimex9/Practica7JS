@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name":"My Custom Extension",
+    "name":"Mi extension para amazon",
     "short_name":"Custom Ex.",
-    "description":"Mi primera extension de Chrome",
+    "description":"Mi segunda extension para un navegador",
     "version":"1.0",
     "action":{
         "default_popup":"index.html"
