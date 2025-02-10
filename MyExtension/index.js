@@ -16,7 +16,7 @@ function call2() {
     chrome.scripting.executeScript({
         target: { tabId: tabId },
         function: changeURLcolor,
-        args:[color]
+        args: [color]
     })
 }
 
@@ -40,9 +40,8 @@ function changeColor() {
 }
 
 function changeURLcolor(color) {
-    //Cambiar el color de los enlaces en funcion del que quiera el usuario
     let links = document.querySelectorAll("a");
-    
+
     for (let link of links) {
         link.style.color = color;
     }
@@ -50,19 +49,25 @@ function changeURLcolor(color) {
 
 function deleteImages() {
     let imgs = document.querySelectorAll("img");
-    
+
     for (let img of imgs) {
         img.style.display = "none";
     }
 }
 
 function showPasswords() {
-    let pass = document.querySelectorAll("input[type='password']");
+    let pass = document.querySelectorAll("input[type='password'],input[is_pass]");
     for (let passwords of pass) {
-        passwords.dataset.is_pass = "false"
-        passwords.type = "text"
+        if (passwords.getAttribute("is_pass") == "false") {
+            passwords.type = "text";
+            passwords.setAttribute("is_pass","true");
+        } else{
+            passwords.type = "password";
+            passwords.setAttribute("is_pass","false");
+        }
     }
 }
+
 
 let tabId;
 chrome.tabs.query(
