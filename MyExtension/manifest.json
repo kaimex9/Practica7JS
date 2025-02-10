@@ -1,0 +1,13 @@
+{
+    "manifest_version": 3,
+    "name":"My Custom Extension",
+    "short_name":"Custom Ex.",
+    "description":"Mi primera extension de Chrome",
+    "version":"1.0",
+    "action":{
+        "default_popup":"index.html"
+    },
+    "permissions":[
+        "activeTab","scripting","tabs"
+    ]
+}
