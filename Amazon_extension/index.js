@@ -7,8 +7,6 @@ function call1() {
     });
 }
 
-
-
 function openMenu() {
     // Creo un div con las medidas necesarias para que sea una columna que ocupe la zona derecha
     let menuDiv = document.createElement('div');
