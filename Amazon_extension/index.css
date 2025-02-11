@@ -1,0 +1,18 @@
+body{
+    font-family: Helvetica, sans-serif;
+}
+
+#sticky,#op1,#op2 {
+    /* Aquí pones tus reglas de estilo */
+    padding: 10px;
+    background-color: rgb(245, 106, 0);
+    font-weight: bold;
+}
+
+#sticky:hover,#op1:hover,#op2:hover {
+    /* Aquí pones tus reglas de estilo */
+    padding: 10px;
+    background-color: rgb(35, 35, 35);
+    color: rgb(245, 106, 0);
+    font-weight: bold;
+}
