@@ -8,8 +8,8 @@ function call1() {
 }
 
 function openMenu() {
-    // Creo un div con las medidas necesarias para que sea una columna que ocupe la zona derecha
     let menuDiv = document.createElement('div');
+    menuDiv.style.position = 'fixed'; // Fijar el elemento en la pantalla
     menuDiv.style.top = '0';
     menuDiv.style.right = '0';
     menuDiv.style.width = '200px';
@@ -17,17 +17,19 @@ function openMenu() {
     menuDiv.style.backgroundColor = '#f0f0f0';
     menuDiv.style.zIndex = '1000';
 
-    // Establecezco el contenedor como flex y centrar los elementos
+    // Establece el contenedor como flex y centra los elementos
     menuDiv.style.display = 'flex';
-    menuDiv.style.flexDirection = 'column'; 
+    menuDiv.style.flexDirection = 'column';
     menuDiv.style.alignItems = 'center';
-    menuDiv.style.justifyContent = 'center'; 
+    menuDiv.style.justifyContent = 'center';
 
+    // Añadir el menú al cuerpo del documento
     document.body.appendChild(menuDiv);
+
 
     let title = document.createElement('h2');
     title.textContent = 'Menu de opciones';
-    title.style.textAlign = 'center'; 
+    title.style.textAlign = 'center';
 
     let button1 = document.createElement('button');
     button1.textContent = 'Informacio Imatges';
@@ -62,6 +64,7 @@ function openMenu() {
 
     // Ahora que los botones existen, les asignamos eventos
     button1.onclick = infoIMGS;
+    button2.onclick = searchMostCheap;
     function infoIMGS() {
         let images = document.querySelectorAll("img");
 
@@ -71,6 +74,36 @@ function openMenu() {
             });
         });
     }
+
+    function searchMostCheap() {
+        let prices = document.querySelectorAll('span[class="_cDEzb_p13n-sc-price_3mJ9Z"]');
+        let cheapest = null, cheapestElement = null;
+    
+        prices.forEach(priceElement => {
+            let price = parseFloat(priceElement.innerText.replace(",", ".").replace(/[^\d.]/g, ""));
+            if (cheapest === null || price < cheapest) {
+                cheapest = price;
+                cheapestElement = priceElement;
+            }
+        });
+    
+        if (cheapestElement) {
+            cheapestElement.scrollIntoView({ behavior: "smooth", block: "center" });
+    
+            let productImg = cheapestElement.closest('div').previousElementSibling;
+            if (productImg) {
+                productImg.style.border = "2px solid black";
+                productImg.style.background = "blue";
+            }
+    
+            // Aplicar estilo también al elemento del precio
+            cheapestElement.style.border = "2px solid blue";
+            cheapestElement.style.padding = "5px";
+            cheapestElement.style.borderRadius = "5px";
+            cheapestElement.style.backgroundColor = "#D0E8FF";
+        }
+    }
+    
     
 }
 
